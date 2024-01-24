@@ -1,10 +1,15 @@
 package com.example.springboot.restapi.book.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -19,17 +24,24 @@ public class Book {
 	private String title;
 
 	private String author;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "publisher_id")
+	@JsonManagedReference
+	private Publisher publisher;
 
-	public Book() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 
-	public Book(int id, String title, String author) {
+	public Book(int id, String title, String author, Publisher publisher) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.author = author;
+		this.publisher = publisher;
+	}
+
+	public Book() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	public int getId() {
@@ -56,9 +68,17 @@ public class Book {
 		this.author = author;
 	}
 
+	public Publisher getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(Publisher publisher) {
+		this.publisher = publisher;
+	}
+
 	@Override
 	public String toString() {
-		return "Book [id=" + id + ", title=" + title + ", author=" + author + "]";
+		return "Book [id=" + id + ", title=" + title + ", author=" + author + ", publisher=" + publisher + "]";
 	}
 
 }

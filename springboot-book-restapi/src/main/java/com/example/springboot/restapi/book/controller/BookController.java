@@ -53,6 +53,7 @@ public class BookController {
 			bookService.addBook(book);
 			b = bookService.getBookById(book.getId());
 			ResponseEntity.of(Optional.of(b));
+			System.out.println(b);
 			return ResponseEntity.status(HttpStatus.CREATED).build();
 		} catch (Exception e) {
 			e.printStackTrace();
