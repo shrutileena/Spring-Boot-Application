@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Iterate - example of loop</title>
+</head>
+<body>
+	<h1>Going to traverse through elements in collection</h1>
+
+	<!-- printing list directly -->
+	<h1 th:text="${names}"></h1>
+
+
+	<!-- looping through a list in thymeleaf -->
+	<ul style="list-style: none;">
+		<li th:each="name, status : ${names}"><span
+			th:style="${status.odd} ? 'font-weight:bold; color:red' : '' "
+			th:text="${status.index+1}+'. '+ ${name}"></span></li>
+	</ul>
+</body>
+</html>
