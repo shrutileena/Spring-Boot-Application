@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Fragments Example</title>
+</head>
+<body>
+	<h1>Fragments Example</h1>
+
+	<br>
+	
+	<!-- bring footer here -->
+	<footer id="hostReplaceTag" th:replace="footer::footer1"></footer>
+	<footer id="hostIncludeTag" th:include="footer::footer1"></footer>
+	<footer id="hostInsertTag" th:insert="footer::footer1"></footer>
+</body>
+</html>

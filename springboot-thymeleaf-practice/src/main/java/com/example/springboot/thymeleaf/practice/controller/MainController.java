@@ -38,4 +38,10 @@ public class MainController {
 		
 		return "conditional";
 	}
+	
+	// handler for including fragments
+	@GetMapping("/fragments")
+	public String fragmentsHandler(Model m) {
+		return "fragments";
+	}
 }
