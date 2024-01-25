@@ -28,4 +28,14 @@ public class MainController {
 		return "iterate";
 	}
 	
+	@GetMapping("/conditional")
+	public String conditionalHandler(Model m) {
+		m.addAttribute("isActive", false);
+		m.addAttribute("gender", "F");
+		
+		List<Integer> list = List.of(1,2,3,4,5,6,7);
+		m.addAttribute("list", list);
+		
+		return "conditional";
+	}
 }
