@@ -42,6 +42,9 @@ public class MainController {
 	// handler for including fragments
 	@GetMapping("/fragments")
 	public String fragmentsHandler(Model m) {
+		m.addAttribute("title", "title");
+		m.addAttribute("subtitle", "subtitle");
 		return "fragments";
 	}
+	
 }

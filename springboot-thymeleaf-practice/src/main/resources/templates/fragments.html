@@ -8,10 +8,13 @@
 	<h1>Fragments Example</h1>
 
 	<br>
-	
+
 	<!-- bring footer here -->
 	<footer id="hostReplaceTag" th:replace="footer::footer1"></footer>
 	<footer id="hostIncludeTag" th:include="footer::footer1"></footer>
 	<footer id="hostInsertTag" th:insert="footer::footer1"></footer>
+	<footer id="dynamicValueTag"
+		th:replace="footer::footer2('this is title','this is subtitle')"></footer>
+	<footer id="dynamicModelValueTag" th:replace="footer::footer2(${title}, ${subtitle})"></footer>
 </body>
 </html>
