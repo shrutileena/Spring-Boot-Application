@@ -47,4 +47,14 @@ public class MainController {
 		return "fragments";
 	}
 	
+	@GetMapping("/aboutnew")
+	public String inheritingHandler() {
+		return "aboutnew";
+	}
+	
+	@GetMapping("/contact")
+	public String inheriting2Handler() {
+		return "contact";
+	}
+	
 }
